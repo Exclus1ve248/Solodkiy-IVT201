@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+{{ super() }}
+<p>Метод K-ближайших соседей kNN
+    <form action="/p_lab3" method="POST">
+    <p><input type="text" class="form_text" name="list1"> Вес</p>
+    <p><input name="list2" class="form_text" type="text"> Размер</p>
+    <p><input name="list3" class="form_text" type="text"> Кол-во семян</p>
+    <input type="submit" class="form_btn" value="Узнать фрукт">
+    <h1>{{class_model}}</h1>
+    </p>
+</form>
+
+{% endblock %}

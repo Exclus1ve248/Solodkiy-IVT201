@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+{{ super() }}
+<p>Линейная регрессия
+<form action="/p_lab1" method="POST">
+    <p><input type="text" class="form_text" name="list1"> Рост</p>
+    <p><input name="list2" class="form_text" type="text"> Вес</p>
+    <p><input name="list3" class="form_text" type="text"> Пол(м-1; ж-0)</p>
+    <input type="submit" class="form_btn" value="Узнать размер стопы">
+    <h1>{{class_model}}</h1>
+    </p>
+</form>
+
+{% endblock %}
