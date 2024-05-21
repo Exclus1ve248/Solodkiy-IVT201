@@ -15,6 +15,16 @@ loaded_model_log_reg = pickle.load(open('model/log_reg', 'rb'))
 loaded_model_knn = pickle.load(open('model/knn', 'rb'))
 loaded_model_tree = pickle.load(open('model/tree', 'rb'))
 
+@app.route('/api', methods=['get'])
+def get_weather():
+    request_data = request.get_json()
+    X_new = np.array([[float(request_data['height']),
+                       float(request_data['weight']),
+                       float(request_data['gender'])]])
+    pred = loaded_model_lin_reg.predict(X_new)
+
+    return jsonify(shoe_size=pred[0])
+
 @app.route("/")
 def index():
     return render_template('index.html', title="Лабораторные работы, выполненные ФИО", menu=menu)
