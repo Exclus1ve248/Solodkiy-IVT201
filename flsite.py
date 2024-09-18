@@ -87,14 +87,15 @@ def f_lab4():
 @app.route("/p_lab5", methods=['POST', 'GET'])
 def p_lab4():
     if request.method == 'GET':
-        return render_template('lab4.html', title="Первый нейрон", menu=menu, class_model='')
+        return render_template('lab5.html', title="Первый нейрон", menu=menu, class_model='')
     if request.method == 'POST':
         X_new = np.array([[float(request.form['list1']),
-                           float(request.form['list2'])]])
+                           float(request.form['list2']),
+                           float(request.form['list3'])]])
         predictions = new_neuron.forward(X_new)
-        print("Предсказанные значения:", predictions, *np.where(predictions >= 0.5, 'Помидор', 'Огурец'))
+        print("Предсказанные значения:", predictions, *np.where(predictions >= 0.5, 'Женщина', 'Мужчина'))
         return render_template('lab5.html', title="Первый нейрон", menu=menu,
-                               class_model="Это: " + str(*np.where(predictions >= 0.5, 'Помидор', 'Огурец')))
+                               class_model="Это: " + str(*np.where(predictions >= 0.5, 'Женщина', 'Мужчина')))
 
 if __name__ == "__main__":
     app.run(debug=True)

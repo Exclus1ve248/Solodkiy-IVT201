@@ -3,9 +3,10 @@
 {% block content %}
 {{ super() }}
 <p>Нейрон для классификации оовощей
-<form action="/p_lab4" method="POST">
-    <p><input type="text" class="form_text" name="list1"> Длина овоща</p>
-    <p><input name="list2" class="form_text" type="text"> Ширина овоща</p>
+<form action="/p_lab5" method="POST">
+    <p><input type="text" class="form_text" name="list1"> Рост</p>
+    <p><input name="list2" class="form_text" type="text"> Вес</p>
+    <p><input name="list3" class="form_text" type="text"> Размер обуви</p>
     <input type="submit" class="form_btn" value="Узнать что за овощ">
     <h1>{{class_model}}</h1>
     </p>
