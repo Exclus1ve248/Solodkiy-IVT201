@@ -89,9 +89,9 @@ def p_lab4():
     if request.method == 'GET':
         return render_template('lab5.html', title="Первый нейрон", menu=menu, class_model='')
     if request.method == 'POST':
-        X_new = np.array([[float(request.form['list1']),
-                           float(request.form['list2']),
-                           float(request.form['list3'])]])
+        X_new = np.array([[float(request.form['list1'])-170,
+                           float(request.form['list2'])-55,
+                           float(request.form['list3'])-35]])
         predictions = new_neuron.forward(X_new)
         print("Предсказанные значения:", predictions, *np.where(predictions >= 0.5, 'Женщина', 'Мужчина'))
         return render_template('lab5.html', title="Первый нейрон", menu=menu,
